@@ -1,4 +1,3 @@
-
 * {
     color: white;
     font-family: Inter;
@@ -16,8 +15,12 @@ body {
     align-items: center;
 }
 
+.none {
+    display: none;
+}
+
 .flex {
-    display:flex;
+    display:flex !important;
 }
 
 .menu-item {
@@ -85,6 +88,7 @@ main #home {
     width: 85%;
     gap: 7.5rem;
     align-items: center;
+    display: none;
 }
 
 main #home #presentation {
@@ -128,28 +132,63 @@ main #home div .cover {
     border-radius: 50%;
 } 
 
-/* section main home*/
-
-main .objectives {
- display: none;
+/* section main objectives*/
+main #objectives {
+    width: 80%;
+    border-radius: 1rem;
+    background-color: #CDD1E1;
+    padding: 2rem;
+    display: none;
+    color: black;
+    min-height: 20rem;
 }
 
-main .portfolio {
+main #objectives p {
+    color: inherit;
+    text-align: justify;
+    font-size: large;
+}
+
+/* section main objectives*/
+main #portfolio {
     display: flex;
 
  /* display: none; */
 }
 
-main .expirience {
+main #expirience {
  display: none;
 }
 
-main .formacao {
+main #formacao {
  display: none;
 }
 
-main .contact {
- display: none;
+/* section main contact*/
+main #contact {
+    width: 80%;
+    border-radius: 1rem;
+    background-color: #CDD1E1;
+    padding: 2rem;
+    display: none;
+    /* color: black; */
+    min-height: 20rem;
+}
+
+main #contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    /* color: black; */
+}
+
+main #contact ul li {
+    color: black;
+}
+
+main #contact ul li img {
+    color: blue !important;
+    /* color: black; */
 }
 
 /* section footer*/

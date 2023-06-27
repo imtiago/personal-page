@@ -7,52 +7,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="src/css/style.css">
-    <script src="src/js/script.js" type="javascript"></script>
-    <title>Tiago Oliveira - Página Pessoal</title>
-    
+    <script src="src/js/script.js"></script>
+
 </head>
 <!-- <body class="back"> -->
 <body>
     <header>
-        <ul class="menu">
+        <ul class="menu" id='menu'>
          <!-- <li class="menu-item selected back">
              <img src = "src/assets/icons/home_.svg" alt="home SVG"/>
          </li>  -->
-     <li class="menu-item">
+        <li class="menu-item">
              <img src = "src/assets/icons/home_.svg" alt="home SVG"/>
-             <button type="button">
+             <button type="button" data-action="home">
                  Home
              </button>
          </li> 
          <li class="menu-item">
              <img src = "src/assets/icons/Bullseye_.svg" alt="javascript SVG"/>
-             <button type="button">
+             <button type="button" data-action="objectives">
                 Metas
             </button>
         </li> 
          <li class="menu-item">
              <img src = "src/assets/icons/portfolio_.svg" alt="node SVG"/>
              
-             <button type="button">
+             <button type="button" data-action="portfolio">
                 Portfólio
             </button>
         </li> 
          <li class="menu-item">
              <img src = "src/assets/icons/Workspace_.svg" alt="postgres SVG"/>
              
-             <button type="button">
+             <button type="button" data-action="experiences">
                 Experiências
             </button>
         </li> 
          <li class="menu-item">
              <img src = "src/assets/icons/User Graduate_.svg" alt="react SVG"/>
-             <button type="button">
+             <button type="button" data-action="graduation">
                 Formação
             </button>
         </li> 
          <li class="menu-item">
              <img src = "src/assets/icons/Alternate Phone_.svg" alt="docker SVG"/>
-             <button type="button">
+             <button type="button" data-action="contact">
                 Contato
             </button>
         </li> 
@@ -60,7 +59,8 @@
     </header>
 
     <main>
-        <div id="home" class="flex">
+        <div id="home" class="page flex">
+            <title>Tiago Oliveira - Home</title>
             <div id="presentation">
                 <h1>
                     eu sou <br><strong>tiago oliveira</strong>
@@ -75,15 +75,19 @@
             </div>
         </div>
 
-        <!-- <div class="objectives">
-            <div class="presentation">
-                <p>
-                    Tornar-se um analista de sistema capaz de extrair soluções simples e objetivas para problemas organizacionais e/ou de pessoas físicas, Utilizando de ferramentas modernas para desenvolver aplicativos/aplicações que minimizem erros dos processos manuais e agregue valor ao contexto geral.
-                </p>
-            </div>
+         <div id="objectives"  class="page">
+            <title>Tiago Oliveira - Metas</title>
+
+            <p>
+                Tornar-se um analista de sistema capaz de extrair soluções simples e objetivas para problemas organizacionais e/ou de pessoas físicas, Utilizando de ferramentas modernas para desenvolver aplicativos/aplicações que minimizem erros dos processos manuais e agregue valor ao contexto geral.
+            </p>
         </div>
 
-        <div class="portfolio" >
+        <!--
+
+        <div id="portfolio" >
+            <title>Tiago Oliveira - Portfolio</title>
+
             <div class="front-end">
                 <h1>
                     Front-end
@@ -105,7 +109,9 @@
             </div>
         </div>
 
-        <div class="expirience">
+        <div id="experiences">
+            <title>Tiago Oliveira - Experiências</title>
+
             <div class="presentation">
                 <h1>
                     tiago oliveira
@@ -119,7 +125,8 @@
             </div>
         </div>
 
-        <div class="formacao">
+        <div id="graduation">
+            <title>Tiago Oliveira - Formação</title>
             <div class="presentation">
                 <h1>
                     tiago oliveira
@@ -131,21 +138,26 @@
             <div class="cover1">
                 <img class="cover" src="https://github.com/imtiago.png" alt="user photo">
             </div>
-        </div>
+        </div>--> 
 
-        <div class="contact">
-            <div class="presentation">
-                <h1>
-                    tiago oliveira
-                </h1>
-                <p>
-                    Olá, meu nome é tiago olvieira soudesenvolvedor de sistemas e soluções para....
-                </p>
-            </div>
-            <div class="cover1">
-                <img class="cover" src="https://github.com/imtiago.png" alt="user photo">
-            </div>
-        </div> -->
+        <!-- <div id="contact"  class="page flex">
+            <title>Tiago Oliveira - Contato</title>
+
+            <ul>
+                <li class="menu-item">
+                    <img src = "src/assets/icons/github.svg" alt="github SVG"/>
+                    <a href="https://github.com/imtiago" target="_blank">github.com/imtiago</a>
+                </li> 
+                <li class="menu-item">
+                    <img src = "src/assets/icons/email.svg" alt="email SVG"/>
+                    <a type="email" href="#">tiago.ufac@gmail.com</a>
+                </li> 
+                <li class="menu-item">
+                    <img src = "src/assets/icons/whatsapp_.svg" alt="whatsapp_ SVG"/>
+                    <a href="https://wa.me/5568999676543" target="_blank">(68) 99967-6543</a>
+                </li> 
+            </ul>
+        </div>  -->
     </main>
 
     <footer>
@@ -182,4 +194,5 @@
         </div>
     </footer>
 </body>
+
 </html>
