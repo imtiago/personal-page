@@ -8,6 +8,8 @@ window.onload = () => {
   };
   const showPage = (pageName) => {
     hiddenAllPages();
+    document.title = "Tiago Oliveira - " + pageName;
+    // document.getElementsByTagName("title").content;
     document.getElementById(pageName).classList.add("flex");
   };
   const pageNotFound = () => {
