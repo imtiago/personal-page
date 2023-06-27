@@ -15,6 +15,10 @@ body {
     align-items: center;
 }
 
+.page {
+    animation: appear 1s 200ms  ease-in-out backwards;
+}
+
 .none {
     display: none;
 }
@@ -130,6 +134,7 @@ main #home div .cover {
     width: 300px;
     height: 300px;
     border-radius: 50%;
+    animation: appear 2s 1200ms  ease-in-out backwards;
 } 
 
 /* section main objectives*/
@@ -215,3 +220,11 @@ footer #footer-options ul {
     width: 80%;
     justify-content: space-between;
 }
+
+@keyframes appear {
+    0% {
+        scale: .7;
+        opacity: 0;
+    }
+}
+
