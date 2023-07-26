@@ -1,196 +1,273 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="src/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link type="text/css" rel="stylesheet" href="src/css/style.css" />
     <script src="src/js/script.js"></script>
     <title>Tiago Oliveira - Home</title>
-
-</head>
-<!-- <body class="back"> -->
-<body>
+  </head>
+  <!-- <body class="back"> -->
+  <body>
     <header>
-        <ul class="menu" id='menu'>
-         <!-- <li class="menu-item selected back">
-             <img src = "src/assets/icons/home_.svg" alt="home SVG"/>
-         </li>  -->
-        <li class="menu-item">
-             <img src = "src/assets/icons/home_.svg" alt="home SVG"/>
-             <button type="button" data-action="home">
-                 Home
-             </button>
-         </li> 
-         <li class="menu-item">
-             <img src = "src/assets/icons/Bullseye_.svg" alt="javascript SVG"/>
-             <button type="button" data-action="objectives">
-                Metas
-            </button>
-        </li> 
-         <li class="menu-item">
-             <img src = "src/assets/icons/portfolio_.svg" alt="node SVG"/>
-             
-             <button type="button" data-action="portfolio">
-                Portfólio
-            </button>
-        </li> 
-         <li class="menu-item">
-             <img src = "src/assets/icons/Workspace_.svg" alt="postgres SVG"/>
-             
-             <button type="button" data-action="experiences">
-                Experiências
-            </button>
-        </li> 
-         <li class="menu-item">
-             <img src = "src/assets/icons/User Graduate_.svg" alt="react SVG"/>
-             <button type="button" data-action="graduation">
-                Formação
-            </button>
-        </li> 
-         <li class="menu-item">
-             <img src = "src/assets/icons/Alternate Phone_.svg" alt="docker SVG"/>
-             <button type="button" data-action="contact">
-                Contato
-            </button>
-        </li> 
-         </ul>
+      <ul class="menu" id="menu">
+        <li class="menu-item selected" data-action="home">
+          <img src="src/assets/icons/home_.svg" alt="home SVG" />
+          <p>Home</p>
+        </li>
+        <li class="menu-item" data-action="objectives">
+          <img src="src/assets/icons/Bullseye_.svg" alt="javascript SVG" />
+          <p>Metas</p>
+        </li>
+        <li class="menu-item" data-action="portfolio">
+          <img src="src/assets/icons/portfolio_.svg" alt="node SVG" />
+          <p>Portfólio</p>
+        </li>
+        <li class="menu-item" data-action="experiences">
+          <img src="src/assets/icons/Workspace_.svg" alt="postgres SVG" />
+          <p>Experiências</p>
+        </li>
+        <li class="menu-item" data-action="graduation">
+          <img src="src/assets/icons/User Graduate_.svg" alt="react SVG" />
+          <p>Formação</p>
+        </li>
+        <li class="menu-item" data-action="contact">
+          <img src="src/assets/icons/Alternate Phone_.svg" alt="docker SVG" />
+          <p>Contato</p>
+        </li>
+      </ul>
     </header>
 
     <main>
-        <div id="home" class="page flex">
-            <div id="presentation">
-                <h1>
-                    eu sou <br><strong>tiago oliveira</strong>
-                    <span>.</span>
-                </h1>
-                <p>
-                    analista e <br>desenvolvedor web
-                </p>
-            </div>
+      <div id="home" class="page flex">
+        <div id="presentation">
+          <h1>
+            eu sou <br /><strong>tiago oliveira</strong>
+            <span>.</span>
+          </h1>
+          <p>analista e <br />desenvolvedor web</p>
+        </div>
+        <div>
+          <img
+            class="cover"
+            src="src/assets/images/cover.png"
+            alt="user photo"
+          />
+        </div>
+      </div>
+
+      <div id="objectives" class="page card">
+        <p>
+          Tornar-se um analista de sistema capaz de extrair soluções simples e
+          objetivas para problemas organizacionais e/ou de pessoas físicas,
+          Utilizando de ferramentas modernas para desenvolver
+          aplicativos/aplicações que minimizem erros dos processos manuais e
+          agregue valor ao contexto geral.
+        </p>
+        <ul>
+          <li>
+            Manter-se atualizado diante de novas metodologías e ferramentas.
+          </li>
+          <li>
+            Participar quando possível de certificações e cursos extra
+            curriculares.
+          </li>
+        </ul>
+      </div>
+
+      <div id="portfolio" class="page">
+        <div class="front-end card">
+          <h1>Front-end</h1>
+          <ul>
+            <li>
+              <p>Copa-card</p>
+              <a target="_blank" href="https://github.com/imtiago/copa-card">
+                <img src="src/assets/icons/eye_outline_.svg" alt="eye SVG" />
+              </a>
+            </li>
+            <li>
+              <p>Signup-user</p>
+              <a target="_blank" href="https://github.com/imtiago/signup-user">
+                <img src="src/assets/icons/eye_outline_.svg" alt="eye SVG" />
+              </a>
+            </li>
+            <li>
+              <p>Signin-user</p>
+              <a target="_blank" href="https://github.com/imtiago/signin-user">
+                <img src="src/assets/icons/eye_outline_.svg" alt="eye SVG" />
+              </a>
+            </li>
+            <li>
+              <p>Cards-painel</p>
+              <a target="_blank" href="https://github.com/imtiago/cards-painel">
+                <img src="src/assets/icons/eye_outline_.svg" alt="eye SVG" />
+              </a>
+            </li>
+            <li>
+              <p>Personal-page</p>
+              <a
+                target="_blank"
+                href="https://github.com/imtiago/personal-page"
+              >
+                <img src="src/assets/icons/eye_outline_.svg" alt="eye SVG" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="back-end card">
+          <h1>Back-end</h1>
+          <ul>
+            <li>
+              <p>Nextjs-auth</p>
+              <a target="_blank" href="https://github.com/imtiago/nextjs_auth">
+                <img src="src/assets/icons/eye_outline_.svg" alt="eye SVG" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div id="experiences" class="page card">
+        <ul>
+          <li>
             <div>
-                <img class="cover" src="src/assets/images/cover.png" alt="user photo">
+              <p>Frelancer - Projeto Rifas Brasil.</p>
+              <p>Ano: 2022/2023.</p>
+              <p>Contrato: Prestação de Serviços.</p>
             </div>
-        </div>
-
-         <div id="objectives"  class="page">
-            <p>
-                Tornar-se um analista de sistema capaz de extrair soluções simples e objetivas para problemas organizacionais e/ou de pessoas físicas, Utilizando de ferramentas modernas para desenvolver aplicativos/aplicações que minimizem erros dos processos manuais e agregue valor ao contexto geral.
-            </p>
-        </div>
-
-        <!--
-
-        <div id="portfolio" >
-            <title>Tiago Oliveira - Portfolio</title>
-
-            <div class="front-end">
-                <h1>
-                    Front-end
-                </h1>
-                <ul>
-                    <li>
-                        <p>Signup-user</p>
-                        <img src = "src/assets/icons/Bullseye_.svg" alt="javascript SVG"/>
-                    </li>
-                </ul>
+            <button onclick="alert('Em processo de aprimoramento')">
+              <img src="src/assets/icons/search.svg" alt="javascript SVG" />
+            </button>
+          </li>
+          <li>
+            <div>
+              <p>Frelancer - Projeto Radas de Licitações.</p>
+              <p>Ano: 2022/2023.</p>
+              <p>Contrato: Prestação de Serviços.</p>
             </div>
-            <div class="back-end">
-                <h1>
-                    Back-end
-                </h1>
-                <p>
-                    Olá, meu nome é tiago olvieira soudesenvolvedor de sistemas e soluções para....
-                </p>
+            <button onclick="alert('Em processo de aprimoramento')">
+              <img src="src/assets/icons/search.svg" alt="javascript SVG" />
+            </button>
+          </li>
+          <li>
+            <div>
+              <p>INCICLE - Software de Gestão.</p>
+              <p>Ano: 2020.</p>
+              <p>Contrato: Estágio.</p>
             </div>
-        </div>
-
-        <div id="experiences">
-            <title>Tiago Oliveira - Experiências</title>
-
-            <div class="presentation">
-                <h1>
-                    tiago oliveira
-                </h1>
-                <p>
-                    Olá, meu nome é tiago olvieira soudesenvolvedor de sistemas e soluções para....
-                </p>
+            <button onclick="alert('Em processo de aprimoramento')">
+              <img src="src/assets/icons/search.svg" alt="javascript SVG" />
+            </button>
+          </li>
+          <li>
+            <div>
+              <p>SEPLAG - Secretaria de Planejamento do Estado do Acre.</p>
+              <p>Ano: 2019/2020.</p>
+              <p>Contrato: Estágio.</p>
             </div>
-            <div class="cover1">
-                <img class="cover" src="https://github.com/imtiago.png" alt="user photo">
+            <button onclick="alert('Em processo de aprimoramento')">
+              <img src="src/assets/icons/search.svg" alt="javascript SVG" />
+            </button>
+          </li>
+          <li>
+            <div>
+              <p>UFAC - PIBIC.</p>
+              <p>Ano: 2018/2019.</p>
+              <p>Contrato: Bolsista.</p>
             </div>
-        </div>
+            <button onclick="alert('Em processo de aprimoramento')">
+              <img src="src/assets/icons/search.svg" alt="javascript SVG" />
+            </button>
+          </li>
+        </ul>
+      </div>
 
-        <div id="graduation">
-            <title>Tiago Oliveira - Formação</title>
-            <div class="presentation">
-                <h1>
-                    tiago oliveira
-                </h1>
-                <p>
-                    Olá, meu nome é tiago olvieira soudesenvolvedor de sistemas e soluções para....
-                </p>
-            </div>
-            <div class="cover1">
-                <img class="cover" src="https://github.com/imtiago.png" alt="user photo">
-            </div>
-        </div>--> 
+      <div id="graduation" class="page card">
+        <ul>
+          <li>
+            <p>Técnico em Informática.</p>
+            <p>Instituto Federal do Acre - IFAC - Câmpos Rio Branco</p>
+            <p>Situação: Concluído.</p>
+            <p>Ano: 2016.</p>
+          </li>
+          <li>
+            <p>Licênciatura em Matemática.</p>
+            <p>Universidade Federal do Acre - UFAC - Câmpos Rio Branco</p>
+            <p>Situação: Trancado.</p>
+            <p>Ano: 2017.</p>
+          </li>
+          <li>
+            <p>Bacharelado em Sistemas de Informação.</p>
+            <p>Universidade Federal do Acre - UFAC - Câmpos Rio Branco</p>
+            <p>Situação: Concluíndo.</p>
+            <p>Ano: 2023.</p>
+          </li>
+        </ul>
+      </div>
 
-        <!-- <div id="contact"  class="page flex">
-            <title>Tiago Oliveira - Contato</title>
-
-            <ul>
-                <li class="menu-item">
-                    <img src = "src/assets/icons/github.svg" alt="github SVG"/>
-                    <a href="https://github.com/imtiago" target="_blank">github.com/imtiago</a>
-                </li> 
-                <li class="menu-item">
-                    <img src = "src/assets/icons/email.svg" alt="email SVG"/>
-                    <a type="email" href="#">tiago.ufac@gmail.com</a>
-                </li> 
-                <li class="menu-item">
-                    <img src = "src/assets/icons/whatsapp_.svg" alt="whatsapp_ SVG"/>
-                    <a href="https://wa.me/5568999676543" target="_blank">(68) 99967-6543</a>
-                </li> 
-            </ul>
-        </div>  -->
+      <div id="contact" class="page card">
+        <ul>
+          <li class="menu-item">
+            <img src="src/assets/icons/github.svg" alt="github SVG" />
+            <a href="https://github.com/imtiago" target="_blank"
+              >github.com/imtiago</a
+            >
+          </li>
+          <li class="menu-item">
+            <img src="src/assets/icons/email.svg" alt="email SVG" />
+            <a type="email" href="#">tiago.ufac@gmail.com</a>
+          </li>
+          <li class="menu-item">
+            <img src="src/assets/icons/whatsapp_.svg" alt="whatsapp_ SVG" />
+            <a href="https://wa.me/5568999676543" target="_blank"
+              >(68) 99967-6543</a
+            >
+          </li>
+        </ul>
+      </div>
     </main>
 
     <footer>
-        <svg  id="waves">
-            <path d="M0 24C0 24 190.954 77.6811 316.5 81C488.172 85.5383 577.491 -7.23405 749 1.5C915.425 9.97515 993.384 131.213 1159.5 118C1274.67 108.84 1440 24 1440 24V232H0V24Z" fill="#244AD0"/>
-        </svg>
-        <div id="footer-options">
-            <ul>
-                <li class="menu-item">
-                    <img src = "src/assets/icons/ubuntu.svg" alt="ubuntu SVG"/>
-                    <a href="https://ubuntu.com/" target="_blank">ubuntu</a>
-                </li> 
-                <li class="menu-item">
-                    <img src = "src/assets/icons/javascript.svg" alt="javascript SVG"/>
-                    <a href="https://www.javascript.com/" target="_blank">javascript</a>
-                </li> 
-                <li class="menu-item">
-                    <img src = "src/assets/icons/node.svg" alt="node SVG"/>
-                    <a href="https://nodejs.org/en" target="_blank">node</a>
-                </li> 
-                <li class="menu-item">
-                    <img src = "src/assets/icons/postgres.svg" alt="postgres SVG"/>
-                    <a href="https://www.postgresql.org/" target="_blank">postgres</a>
-                </li> 
-                <li class="menu-item">
-                    <img src = "src/assets/icons/react.svg" alt="react SVG"/>
-                    <a href="https://react.dev/" target="_blank">react</a>
-                </li> 
-                <li class="menu-item">
-                    <img src = "src/assets/icons/docker.svg" alt="docker SVG"/>
-                    <a href="https://www.docker.com/" target="_blank">docker</a>
-                </li> 
-            </ul>
-        </div>
+      <svg id="waves">
+        <path
+          d="M0 24C0 24 190.954 77.6811 316.5 81C488.172 85.5383 577.491 -7.23405 749 1.5C915.425 9.97515 993.384 131.213 1159.5 118C1274.67 108.84 1440 24 1440 24V232H0V24Z"
+          fill="#244AD0"
+        />
+      </svg>
+      <div id="footer-options">
+        <ul>
+          <li class="menu-item">
+            <img src="src/assets/icons/ubuntu.svg" alt="ubuntu SVG" />
+            <a href="https://ubuntu.com/" target="_blank">ubuntu</a>
+          </li>
+          <li class="menu-item">
+            <img src="src/assets/icons/javascript.svg" alt="javascript SVG" />
+            <a href="https://www.javascript.com/" target="_blank">javascript</a>
+          </li>
+          <li class="menu-item">
+            <img src="src/assets/icons/node.svg" alt="node SVG" />
+            <a href="https://nodejs.org/en" target="_blank">node</a>
+          </li>
+          <li class="menu-item">
+            <img src="src/assets/icons/postgres.svg" alt="postgres SVG" />
+            <a href="https://www.postgresql.org/" target="_blank">postgres</a>
+          </li>
+          <li class="menu-item">
+            <img src="src/assets/icons/react.svg" alt="react SVG" />
+            <a href="https://react.dev/" target="_blank">react</a>
+          </li>
+          <li class="menu-item">
+            <img src="src/assets/icons/docker.svg" alt="docker SVG" />
+            <a href="https://www.docker.com/" target="_blank">docker</a>
+          </li>
+        </ul>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>

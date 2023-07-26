@@ -1,3 +1,12 @@
+const namePages = {
+  home: "Home",
+  objectives: "Metas",
+  portfolio: "Portfólio",
+  experiences: "Experiências",
+  graduation: "Formação",
+  contact: "Contato",
+};
+
 window.onload = () => {
   const pages = document.getElementsByClassName("page");
   const hiddenAllPages = () => {
@@ -8,16 +17,20 @@ window.onload = () => {
   };
   const showPage = (pageName) => {
     hiddenAllPages();
-    document.title = "Tiago Oliveira - " + pageName;
-    // document.getElementsByTagName("title").content;
+    document.title = `Tiago Oliveira - ${namePages[pageName]}`;
     document.getElementById(pageName).classList.add("flex");
   };
   const pageNotFound = () => {
-    alert("a página esta sendo desenvolvida");
+    alert("a página esta em processo de desenvolvimento");
   };
   const menu = document.getElementById("menu");
   const itens_menu = menu.getElementsByTagName("li");
-  for (item of itens_menu) {
+  const removeSelectedAllOptions = () => {
+    for (let option of itens_menu) {
+      option.classList.remove("selected");
+    }
+  };
+  for (let item of itens_menu) {
     item.addEventListener("click", (event) => {
       if (!event.target.matches("[data-action]")) {
         return;
@@ -30,24 +43,22 @@ window.onload = () => {
           showPage("objectives");
         },
         portfolio() {
-          pageNotFound();
-          // showPage("portfolio");
+          showPage("portfolio");
         },
         experiences() {
-          pageNotFound();
-          // showPage("experiences");
+          showPage("experiences");
         },
         graduation() {
-          pageNotFound();
-          // showPage("graduation");
+          showPage("graduation");
         },
         contact() {
-          pageNotFound();
-          // showPage("contact");
+          showPage("contact");
         },
       };
+      removeSelectedAllOptions();
       const value = event.target.dataset.action;
       actions[value]();
+      event.target.classList.add("selected");
     });
   }
 };
