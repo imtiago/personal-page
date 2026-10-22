@@ -1,0 +1,20 @@
+---
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { projects } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const clients = projects.filter((p) => p.kind === 'sap').map((p) => p.client.toUpperCase());
+---
+
+<div class="mt-14 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm">
+  <span class="text-[0.65rem] tracking-[0.18em] text-muted uppercase">{t('clients.label')}</span>
+  <ul class="contents">
+    {clients.map((c) => <li data-client class="font-display text-base font-bold tracking-wide text-[#b8c8e0]">{c}</li>)}
+  </ul>
+</div>

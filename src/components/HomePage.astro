@@ -1,4 +1,5 @@
 ---
+import Hero from './Hero.astro';
 import LangSuggest from './LangSuggest.astro';
 import Nav from './Nav.astro';
 import type { Lang } from '../i18n/langs';
@@ -12,6 +13,6 @@ const { lang } = Astro.props;
 
 <Nav lang={lang} />
 <main id="conteudo" data-lang={lang}>
-  <h1 class="sr-only">Tiago Oliveira</h1>
+  <Hero lang={lang} />
 </main>
 <LangSuggest lang={lang} />

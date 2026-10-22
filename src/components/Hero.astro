@@ -1,0 +1,90 @@
+---
+import ClientStrip from './ClientStrip.astro';
+import Icon from './Icon.astro';
+import ProfileCard from './ProfileCard.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { profile } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const [leadBefore, rest] = t('hero.lead').split('{specialty}');
+const [leadMiddle, leadAfter] = rest.split('{btp}');
+const cv = profile.cv[lang];
+---
+
+<section id="inicio" class="hero grid-bg relative overflow-hidden px-4 pt-28 pb-16 md:pt-36">
+  <div class="aurora" aria-hidden="true"></div>
+  <div class="container-x relative">
+    <div class="flex flex-col items-start gap-12 lg:flex-row lg:items-center lg:justify-between">
+      <div class="max-w-2xl">
+        {
+          profile.available && (
+            <p data-status class="eyebrow flex items-center gap-2">
+              <span class="size-2 rounded-full bg-ok shadow-[0_0_10px_var(--color-ok)]" />
+              {t('hero.status')}
+            </p>
+          )
+        }
+        <h1 class="mt-3 font-display leading-[0.92] font-bold tracking-tight" style="font-size: clamp(3.25rem, 9vw, 5.5rem)">
+          <span class="sr-only">{t('hero.hello')} </span>Tiago<br /><span class="grad-text">Oliveira</span>
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-[#bcd6f5]">
+          {leadBefore}<strong class="font-semibold text-white"
+            ><span data-typewriter data-words={JSON.stringify(profile.heroSpecialties)}>SAP FSM/SSAM</span></strong
+          >{leadMiddle}<strong class="font-semibold text-white">{t('hero.leadBtp')}</strong>{leadAfter}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#contato" class="btn-primary">{t('hero.cta')}</a>
+          {
+            cv && (
+              <a href={cv} data-cv download class="btn-ghost">
+                <Icon name="download" size={16} />
+                {t('hero.cv')}
+              </a>
+            )
+          }
+        </div>
+      </div>
+      <ProfileCard lang={lang} />
+    </div>
+    <ClientStrip lang={lang} />
+  </div>
+</section>
+
+<style>
+  .aurora {
+    position: absolute;
+    inset: -30%;
+    pointer-events: none;
+    background:
+      radial-gradient(at 75% 40%, rgb(59 156 255 / 0.4), transparent 33%),
+      radial-gradient(at 92% 80%, rgb(139 92 246 / 0.3), transparent 35%),
+      radial-gradient(at 10% 100%, rgb(14 165 233 / 0.18), transparent 35%);
+    filter: blur(20px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :global(.js) .aurora {
+      animation: aurora-drift 30s ease-in-out infinite alternate;
+    }
+  }
+
+  @keyframes aurora-drift {
+    from {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    to {
+      transform: translate3d(-4%, 3%, 0) rotate(8deg);
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/typewriter';
+  import '../scripts/counters';
+</script>
