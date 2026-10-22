@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face { font-family: 'SG'; src: url(%%SG%%) format('woff2'); font-weight: 300 700; }
+      @font-face { font-family: 'Inter'; src: url(%%INTER%%) format('woff2'); font-weight: 100 900; }
+      * { margin: 0; box-sizing: border-box; }
+      body { width: 1200px; height: 630px; overflow: hidden; background: #060f1f; color: #e8f1ff; font-family: Inter, sans-serif; }
+      .card {
+        position: relative; width: 1200px; height: 630px; overflow: hidden; padding: 72px 80px;
+        display: flex; align-items: center; gap: 64px;
+        background-image:
+          radial-gradient(circle at 78% 40%, rgb(59 156 255 / 0.45), transparent 38%),
+          radial-gradient(circle at 92% 92%, rgb(139 92 246 / 0.45), transparent 36%),
+          radial-gradient(circle at 5% 100%, rgb(14 165 233 / 0.25), transparent 35%),
+          linear-gradient(rgb(59 156 255 / 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(59 156 255 / 0.07) 1px, transparent 1px);
+        background-size: auto, auto, auto, 40px 40px, 40px 40px;
+      }
+      .text { flex: 1; }
+      .eyebrow { font-size: 22px; letter-spacing: 0.22em; text-transform: uppercase; color: #7fb8ff; display: flex; align-items: center; gap: 14px; }
+      .dot { width: 14px; height: 14px; border-radius: 50%; background: #34d399; box-shadow: 0 0 16px #34d399; }
+      h1 { font-family: SG; font-weight: 700; font-size: 118px; line-height: 0.92; letter-spacing: -0.02em; margin: 22px 0 28px; }
+      .grad { background: linear-gradient(90deg, #3b9cff, #8b5cf6 60%, #38bdf8); -webkit-background-clip: text; color: transparent; }
+      .role { font-size: 32px; color: #bcd6f5; }
+      .role b { color: #fff; font-weight: 600; }
+      .chips { display: flex; gap: 12px; margin-top: 30px; }
+      .chip { font-size: 22px; padding: 8px 18px; border-radius: 999px; border: 1px solid rgb(59 156 255 / 0.4); background: rgb(59 156 255 / 0.1); color: #cfe4ff; }
+      .chip.hl { border-color: transparent; background: linear-gradient(90deg, #1f6fd1, #6d3fe0); color: #fff; font-weight: 600; }
+      .ring { flex-shrink: 0; border-radius: 50%; padding: 8px; background: conic-gradient(from 200deg, #3b9cff, #8b5cf6, #38bdf8, #3b9cff); box-shadow: 0 0 90px rgb(59 156 255 / 0.5); }
+      .ring img { display: block; width: 300px; height: 300px; border-radius: 50%; border: 10px solid #060f1f; background: #1a2b4a; object-fit: cover; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="text">
+        <p class="eyebrow"><span class="dot"></span>%%EYEBROW%%</p>
+        <h1>Tiago<br /><span class="grad">Oliveira</span></h1>
+        <p class="role">%%ROLE%%</p>
+        <div class="chips"><span class="chip hl">SAP FSM</span><span class="chip hl">SAP BTP</span><span class="chip">SSAM</span><span class="chip">Fiori</span></div>
+      </div>
+      <div class="ring"><img src="%%AVATAR%%" alt="" /></div>
+    </div>
+  </body>
+</html>
