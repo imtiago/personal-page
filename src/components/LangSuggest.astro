@@ -1,0 +1,44 @@
+---
+import { HTML_LANG, LANGS, pathFor, type Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+// O convite é escrito no idioma sugerido, não no idioma da página atual.
+const options = LANGS.filter((l) => l !== lang).map((l) => {
+  const t = useTranslations(l);
+  return { lang: l, href: pathFor(l), text: t('lang.suggest'), yes: t('lang.suggestYes'), no: t('lang.suggestNo') };
+});
+---
+
+<div data-lang-suggest data-current={lang} hidden class="fixed inset-x-4 bottom-24 z-50 sm:left-auto sm:right-6 sm:w-80">
+  {
+    options.map((o) => (
+      <div
+        data-suggest-for={o.lang}
+        lang={HTML_LANG[o.lang]}
+        hidden
+        role="dialog"
+        aria-live="polite"
+        class="glass flex flex-col gap-3 bg-surface/90 p-4 text-sm shadow-2xl shadow-black/40"
+      >
+        <p>{o.text}</p>
+        <div class="flex gap-2">
+          <a href={o.href} data-suggest-yes={o.lang} class="btn-primary px-4 py-2">
+            {o.yes}
+          </a>
+          <button type="button" data-suggest-no class="btn-ghost px-4 py-2">
+            {o.no}
+          </button>
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  import '../scripts/langSuggest';
+</script>

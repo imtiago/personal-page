@@ -1,0 +1,38 @@
+---
+import Icon from './Icon.astro';
+import { HTML_LANG, LANGS, pathFor, type Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div
+  data-lang-switcher
+  role="group"
+  aria-label={t('lang.label')}
+  class="inline-flex items-center gap-0.5 rounded-full border border-white/15 bg-white/5 p-[3px] text-xs font-semibold"
+>
+  <Icon name="globe" size={14} class="mx-1.5 text-primary-soft" />
+  {
+    LANGS.map((l) => (
+      <a
+        href={pathFor(l)}
+        lang={HTML_LANG[l]}
+        hreflang={HTML_LANG[l]}
+        aria-current={l === lang ? 'page' : undefined}
+        data-lang-link={l}
+        class:list={[
+          'rounded-full px-2.5 py-1 uppercase transition-colors',
+          l === lang ? 'bg-gradient-to-r from-[#1f6fd1] to-[#6d3fe0] text-white' : 'text-muted hover:text-text',
+        ]}
+      >
+        {l}
+      </a>
+    ))
+  }
+</div>

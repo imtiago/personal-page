@@ -1,0 +1,27 @@
+---
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 20, class: className = '' } = Astro.props;
+// Ícones de marca (LinkedIn, GitHub, WhatsApp) não existem no Lucide e ficam em src/assets/icons.
+const brand = join(process.cwd(), 'src/assets/icons', `${name}.svg`);
+const lucide = join(process.cwd(), 'node_modules/lucide-static/icons', `${name}.svg`);
+let svg: string;
+try {
+  svg = readFileSync(brand, 'utf8');
+} catch {
+  svg = readFileSync(lucide, 'utf8');
+}
+svg = svg
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .replace(/\s(width|height|class)="[^"]*"/g, '')
+  .replace('<svg', `<svg width="${size}" height="${size}" class="${className}" aria-hidden="true" focusable="false"`);
+---
+
+<Fragment set:html={svg} />

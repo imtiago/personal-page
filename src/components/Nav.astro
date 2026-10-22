@@ -1,0 +1,74 @@
+---
+import Icon from './Icon.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const links = [
+  { href: '#expertise', label: t('nav.expertise') },
+  { href: '#projetos', label: t('nav.projects') },
+  { href: '#certificacoes', label: t('nav.certs') },
+  { href: '#sobre', label: t('nav.about') },
+  { href: '#contato', label: t('nav.contact') },
+];
+---
+
+<header data-site-header class="fixed inset-x-0 top-0 z-50 transition-[background,border-color,backdrop-filter] duration-300">
+  <div data-progress class="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-gradient-to-r from-primary via-violet to-cyan"></div>
+  <nav aria-label={t('nav.primary')} class="container-x flex h-16 items-center justify-between gap-4 px-4 md:h-20">
+    <LanguageSwitcher lang={lang} />
+    <button
+      type="button"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="menu-principal"
+      aria-label={t('nav.menu')}
+      data-label-open={t('nav.menu')}
+      data-label-close={t('nav.close')}
+      class="grid size-10 place-items-center rounded-lg text-text md:hidden"
+    >
+      <Icon name="menu" size={22} class="menu-icon-open" />
+      <Icon name="x" size={22} class="menu-icon-close hidden" />
+    </button>
+    <ul
+      id="menu-principal"
+      data-section-links
+      class="fixed inset-x-0 top-16 hidden flex-col gap-1 border-b border-white/10 bg-bg/95 p-4 text-base backdrop-blur-xl md:static md:flex md:flex-row md:gap-6 md:border-0 md:bg-transparent md:p-0 md:text-sm md:backdrop-blur-none"
+    >
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="block rounded-lg px-3 py-2 text-text/85 transition-colors hover:text-text aria-[current=true]:text-primary-soft md:p-0"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  [data-site-header].is-scrolled {
+    background: rgb(6 15 31 / 0.72);
+    border-bottom: 1px solid rgb(255 255 255 / 0.08);
+    backdrop-filter: blur(14px);
+  }
+
+  [data-section-links].is-open {
+    display: flex;
+  }
+</style>
+
+<script>
+  import '../scripts/nav';
+</script>
