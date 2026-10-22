@@ -22,11 +22,29 @@ for (const js of jsModes) {
   for (const lang of langs) {
     for (const width of widths) {
       const page = await browser.newPage();
-      await page.setJavaScriptEnabled(js === 'on');
+      if (js === 'off') {
+        // Simula um visitante sem JavaScript: o HTML chega sem nenhum <script>.
+        // (setJavaScriptEnabled(false) impediria a medição de overflow via evaluate.)
+        await page.setRequestInterception(true);
+        page.on('request', async (req) => {
+          if (req.resourceType() !== 'document') return req.continue();
+          const res = await fetch(req.url());
+          const html = (await res.text()).replace(/<script\b[\s\S]*?<\/script>/gi, '');
+          req.respond({ status: res.status, contentType: 'text/html; charset=utf-8', body: html });
+        });
+      }
       await page.setViewport({ width, height: 900, deviceScaleFactor: 1 });
       if (reduced) await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
       await page.evaluateOnNewDocument((l) => localStorage.setItem('lang', l), lang);
       await page.goto(base + PATHS[lang], { waitUntil: 'networkidle0' });
+      // Rola a página inteira para disparar as revelações ao rolar antes do screenshot.
+      await page.evaluate(async () => {
+        for (let y = 0; y < document.body.scrollHeight; y += 400) {
+          window.scrollTo({ top: y, behavior: 'instant' });
+          await new Promise((r) => setTimeout(r, 60));
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      });
       await new Promise((r) => setTimeout(r, 1500));
       const { scrollWidth, innerWidth } = await page.evaluate(() => ({
         scrollWidth: document.documentElement.scrollWidth,
