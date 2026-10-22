@@ -1,0 +1,32 @@
+{
+  "name": "personal-page",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test:unit": "vitest run --project unit",
+    "test:build": "astro build && vitest run --project build",
+    "test": "npm run test:unit && npm run test:build"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vercel/analytics": "^2.0.1",
+    "astro": "^7.4.2",
+    "lucide-static": "^1.61.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "linkedom": "^0.18.14",
+    "vitest": "^5.0.5"
+  }
+}

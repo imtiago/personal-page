@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tiago-oliveira.vercel.app/sitemap-index.xml
