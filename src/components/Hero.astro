@@ -35,7 +35,12 @@ const cv = profile.cv[lang];
         </h1>
         <p class="mt-6 max-w-xl text-lg leading-relaxed text-[#bcd6f5]">
           {leadBefore}<strong class="font-semibold text-white"
-            ><span data-typewriter data-words={JSON.stringify(profile.heroSpecialties)}>SAP FSM/SSAM</span></strong
+            ><span data-typewriter-box class="tw-box"
+              ><span data-typewriter-ghost aria-hidden="true" class="tw-ghost">SAP FSM/SSAM</span><span
+                data-typewriter
+                data-words={JSON.stringify(profile.heroSpecialties)}>SAP FSM/SSAM</span
+              ></span
+            ></strong
           >{leadMiddle}<strong class="font-semibold text-white">{t('hero.leadBtp')}</strong>{leadAfter}
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
@@ -57,6 +62,20 @@ const cv = profile.cv[lang];
 </section>
 
 <style>
+  /* O fantasma invisível fixa a largura do texto mais longo: digitar não reflui o parágrafo. */
+  .tw-box {
+    display: inline-grid;
+    white-space: nowrap;
+  }
+
+  .tw-box > * {
+    grid-area: 1 / 1;
+  }
+
+  .tw-ghost {
+    visibility: hidden;
+  }
+
   .aurora {
     position: absolute;
     inset: -30%;

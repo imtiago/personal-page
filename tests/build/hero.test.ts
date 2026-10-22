@@ -20,6 +20,14 @@ describe.each(LANGS)('hero (%s)', (lang) => {
     expect(tw.closest('p')?.textContent).toContain('SAP BTP');
   });
 
+  it('o typewriter reserva a largura do texto mais longo (sem layout shift)', () => {
+    const wrapper = hero.querySelector('[data-typewriter-box]')!;
+    const ghost = wrapper.querySelector('[data-typewriter-ghost]')!;
+    expect(ghost.getAttribute('aria-hidden')).toBe('true');
+    expect(ghost.textContent?.trim()).toBe('SAP FSM/SSAM');
+    expect(wrapper.querySelector('[data-typewriter]')).not.toBeNull();
+  });
+
   it('os contadores mostram os valores finais no HTML', () => {
     expect([...hero.querySelectorAll('[data-count]')].map((c) => c.textContent?.trim())).toEqual(['5+', '5', '4']);
   });

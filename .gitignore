@@ -5,3 +5,6 @@ dist/
 .vercel/
 shots/
 *:Zone.Identifier
+
+# perfis temporários do Chrome/Lighthouse
+C:*

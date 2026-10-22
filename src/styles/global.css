@@ -66,8 +66,8 @@
     display: inline-flex;
     align-items: center;
     font-size: 0.75rem;
-    line-height: 1;
-    padding: 0.4rem 0.7rem;
+    line-height: 1.25;
+    padding: 0.35rem 0.7rem;
     border-radius: 999px;
     border: 1px solid rgb(59 156 255 / 0.35);
     background: rgb(59 156 255 / 0.08);
@@ -76,7 +76,7 @@
 
   .chip-hl {
     border-color: transparent;
-    background: linear-gradient(90deg, #3b9cff, #8b5cf6);
+    background: linear-gradient(90deg, #1f6fd1, #6d3fe0);
     color: #fff;
     font-weight: 600;
   }

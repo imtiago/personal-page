@@ -22,10 +22,11 @@ const options = LANGS.filter((l) => l !== lang).map((l) => {
         lang={HTML_LANG[o.lang]}
         hidden
         role="dialog"
+        aria-labelledby={`sugestao-${o.lang}`}
         aria-live="polite"
         class="glass flex flex-col gap-3 bg-surface/90 p-4 text-sm shadow-2xl shadow-black/40"
       >
-        <p>{o.text}</p>
+        <p id={`sugestao-${o.lang}`}>{o.text}</p>
         <div class="flex gap-2">
           <a href={o.href} data-suggest-yes={o.lang} class="btn-primary px-4 py-2">
             {o.yes}

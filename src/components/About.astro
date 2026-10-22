@@ -72,12 +72,8 @@ const paragraphs = about.paragraphs[lang].map((p) => p.split('**'));
 </section>
 
 <style>
-  .milestones::before {
-    content: '';
-    position: absolute;
-  }
-
   .milestones li::before {
+    display: none;
     content: '';
     position: absolute;
     top: 6px;
@@ -85,6 +81,12 @@ const paragraphs = about.paragraphs[lang].map((p) => p.split('**'));
     right: 0;
     height: 2px;
     background: linear-gradient(90deg, var(--color-primary), var(--color-violet));
+  }
+
+  @media (min-width: 640px) {
+    .milestones li::before {
+      display: block;
+    }
   }
 
   .milestones li:last-child::before {
