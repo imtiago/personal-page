@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { profile } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/5 px-4 py-6 text-xs text-muted">
+  <div class="container-x flex flex-wrap items-center justify-between gap-4">
+    <p>© {year} {profile.name}. {t('footer.rights')}</p>
+    <div class="flex items-center gap-4">
+      <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="hover:text-text">
+        <Icon name="github" size={18} />
+      </a>
+      <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="hover:text-text">
+        <Icon name="linkedin" size={18} />
+      </a>
+      <span>{t('footer.made')}</span>
+    </div>
+  </div>
+</footer>

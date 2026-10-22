@@ -18,10 +18,14 @@ try {
 } catch {
   svg = readFileSync(lucide, 'utf8');
 }
+// Só a tag <svg> raiz é reescrita; elementos internos (ex.: <rect width>) ficam intactos.
 svg = svg
   .replace(/<!--[\s\S]*?-->/g, '')
-  .replace(/\s(width|height|class)="[^"]*"/g, '')
-  .replace('<svg', `<svg width="${size}" height="${size}" class="${className}" aria-hidden="true" focusable="false"`);
+  .replace(/<svg\b[^>]*>/, (tag) =>
+    tag
+      .replace(/\s(width|height|class)="[^"]*"/g, '')
+      .replace('<svg', `<svg width="${size}" height="${size}" class="${className}" aria-hidden="true" focusable="false"`),
+  );
 ---
 
 <Fragment set:html={svg} />

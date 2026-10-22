@@ -1,0 +1,111 @@
+---
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { about } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const title = about.title[lang];
+// Os parágrafos marcam trechos em negrito com **texto**.
+const paragraphs = about.paragraphs[lang].map((p) => p.split('**'));
+---
+
+<section id="sobre" class="section grid-bg">
+  <div class="container-x grid gap-10 lg:grid-cols-[1.4fr_1fr]">
+    <div data-reveal>
+      <p class="eyebrow">{t('about.eyebrow')}</p>
+      <h2 class="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
+        {title.before}<span class="grad-text">{title.highlight}</span>{title.after}
+      </h2>
+      <div data-about-text class="mt-5 space-y-4 leading-relaxed text-muted">
+        {
+          paragraphs.map((parts) => (
+            <p>{parts.map((part, i) => (i % 2 === 1 ? <strong class="font-semibold text-white">{part}</strong> : part))}</p>
+          ))
+        }
+      </div>
+      <ol class="milestones mt-8 grid grid-cols-2 gap-y-6 sm:grid-cols-4">
+        {
+          about.milestones.map((m, i) => (
+            <li data-milestone class="relative pt-6 pr-2 text-xs">
+              <span class:list={['dot', { last: i === about.milestones.length - 1 }]} />
+              <span
+                data-year
+                class:list={[
+                  'block font-display text-base font-bold',
+                  i === about.milestones.length - 1 ? 'grad-text' : 'text-primary-soft',
+                ]}
+              >
+                {m.year[lang]}
+              </span>
+              {m.label[lang]}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+    <div class="grid content-start gap-3">
+      <div class="glass p-5" data-reveal>
+        <h3 class="eyebrow mb-2">{t('about.education')}</h3>
+        <ul class="space-y-1 text-sm">
+          {
+            about.education.map((e) => (
+              <li>
+                <strong class="font-semibold">{e.course[lang]}</strong>, {e.school}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="glass p-5" data-reveal>
+        <h3 class="eyebrow mb-2">{t('about.languages')}</h3>
+        <ul data-languages class="space-y-1 text-sm">
+          {about.languages[lang].map((l) => <li>{l}</li>)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .milestones::before {
+    content: '';
+    position: absolute;
+  }
+
+  .milestones li::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-violet));
+  }
+
+  .milestones li:last-child::before {
+    right: auto;
+    width: 0;
+  }
+
+  .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-bg);
+    border: 2px solid var(--color-primary);
+  }
+
+  .dot.last {
+    background: var(--color-violet);
+    border-color: var(--color-violet);
+    box-shadow: 0 0 12px var(--color-violet);
+  }
+</style>

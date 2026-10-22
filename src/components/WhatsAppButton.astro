@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { profile } from '../content';
+import { whatsappUrl } from '../lib/whatsapp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<a
+  data-whatsapp-float
+  href={whatsappUrl(profile.whatsapp, t('contact.waMessage'))}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={t('contact.waFloat')}
+  title={t('contact.waFloat')}
+  class="fixed right-5 bottom-5 z-40 grid size-14 place-items-center rounded-full bg-[#1fa855] text-white shadow-lg shadow-[#25d366]/40 transition-transform hover:scale-105"
+>
+  <Icon name="whatsapp" size={28} />
+</a>

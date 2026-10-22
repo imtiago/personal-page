@@ -1,0 +1,62 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { testimonials } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const many = testimonials.length > 1;
+
+function split(quote: string, highlight: string) {
+  const i = quote.indexOf(highlight);
+  return i < 0 ? [quote, '', ''] : [quote.slice(0, i), highlight, quote.slice(i + highlight.length)];
+}
+---
+
+<section id="recomendacoes" class="section">
+  <div class="container-x">
+    <p class="eyebrow text-center" data-reveal>{t('testimonials.eyebrow')}</p>
+    <div
+      data-carousel={many ? '' : undefined}
+      class:list={[
+        'mt-6',
+        many && 'flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:thin]',
+      ]}
+    >
+      {
+        testimonials.map((item) => {
+          const [before, mid, after] = split(item.quote, item.highlight);
+          const translation = lang === 'pt' ? undefined : item.quoteTranslation[lang];
+          return (
+            <figure class:list={['mx-auto max-w-3xl text-center', many && 'w-full shrink-0 snap-center']} data-reveal>
+              <Icon name="quote" size={36} class="mx-auto text-primary/60" />
+              <blockquote lang="pt-BR" class="mt-4 font-display text-xl leading-relaxed md:text-2xl">
+                <p>
+                  {before}
+                  <span class="grad-text">{mid}</span>
+                  {after}
+                </p>
+              </blockquote>
+              {translation && (
+                <p data-translation class="mt-4 text-sm text-muted italic">
+                  <span class="not-italic font-semibold text-text/80">{t('testimonials.translation')}:</span> {translation}
+                </p>
+              )}
+              <figcaption class="mt-6">
+                <p class="font-semibold">{item.author}</p>
+                <p class="text-sm text-muted">
+                  {item.role[lang]} · {item.relation[lang]}
+                </p>
+              </figcaption>
+            </figure>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

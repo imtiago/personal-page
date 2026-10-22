@@ -1,0 +1,59 @@
+---
+import Icon from './Icon.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { profile } from '../content';
+import { whatsappUrl } from '../lib/whatsapp';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const [before, after = ''] = t('contact.title').split('{highlight}');
+const cv = profile.cv[lang];
+const external = { target: '_blank', rel: 'noopener noreferrer' };
+
+const actions = [
+  { id: 'whatsapp', href: whatsappUrl(profile.whatsapp, t('contact.waMessage')), label: t('contact.whatsapp'), icon: 'whatsapp', primary: true, attrs: external },
+  { id: 'email', href: `mailto:${profile.email}`, label: t('contact.email'), icon: 'mail', attrs: {} },
+  { id: 'linkedin', href: profile.linkedin, label: t('contact.linkedin'), icon: 'linkedin', attrs: external },
+  profile.scheduleUrl && { id: 'schedule', href: profile.scheduleUrl, label: t('contact.schedule'), icon: 'calendar', attrs: external },
+  cv && { id: 'cv', href: cv, label: t('contact.cv'), icon: 'download', attrs: { download: '' } },
+].filter((a) => !!a);
+---
+
+<section id="contato" class="section overflow-hidden text-center">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="container-x relative" data-reveal>
+    <p class="eyebrow">{t('contact.eyebrow')}</p>
+    <h2 class="mt-3 font-display text-4xl leading-tight font-bold tracking-tight md:text-5xl">
+      {before}<br /><span class="grad-text">{t('contact.highlight')}</span>{after}
+    </h2>
+    <ul class="mt-9 flex flex-wrap justify-center gap-3">
+      {
+        actions.map((a) => (
+          <li>
+            <a href={a.href} data-contact={a.id} class={a.primary ? 'btn-primary' : 'btn-ghost'} {...a.attrs}>
+              <Icon name={a.icon} size={18} />
+              {a.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-5 text-sm text-muted">{profile.email}</p>
+  </div>
+</section>
+
+<style>
+  .glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(at 50% 120%, rgb(139 92 246 / 0.35), transparent 50%),
+      radial-gradient(at 50% 100%, rgb(59 156 255 / 0.3), transparent 45%);
+  }
+</style>

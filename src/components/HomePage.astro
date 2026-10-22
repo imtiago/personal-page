@@ -1,11 +1,17 @@
 ---
+import About from './About.astro';
+import Certifications from './Certifications.astro';
 import ConnectDiagram from './ConnectDiagram.astro';
+import Contact from './Contact.astro';
 import Expertise from './Expertise.astro';
+import Footer from './Footer.astro';
 import Hero from './Hero.astro';
 import LangSuggest from './LangSuggest.astro';
 import Nav from './Nav.astro';
 import Process from './Process.astro';
 import Projects from './Projects.astro';
+import Testimonials from './Testimonials.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
 import type { Lang } from '../i18n/langs';
 
 interface Props {
@@ -22,9 +28,11 @@ const { lang } = Astro.props;
   <ConnectDiagram lang={lang} />
   <Process lang={lang} />
   <Projects lang={lang} />
-  <section id="certificacoes"></section>
-  <section id="recomendacoes"></section>
-  <section id="sobre"></section>
-  <section id="contato"></section>
+  <Certifications lang={lang} />
+  <Testimonials lang={lang} />
+  <About lang={lang} />
+  <Contact lang={lang} />
 </main>
+<Footer lang={lang} />
+<WhatsAppButton lang={lang} />
 <LangSuggest lang={lang} />

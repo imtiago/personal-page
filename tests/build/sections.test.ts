@@ -78,6 +78,9 @@ describe.each(LANGS)('seções (%s)', (lang) => {
   it('não menciona Seal Telecom nem usa emojis', () => {
     const html = doc.documentElement.outerHTML;
     expect(html).not.toMatch(/seal/i);
-    expect(doc.body.textContent).not.toMatch(/\p{Extended_Pictographic}/u);
+    const body = doc.body.cloneNode(true) as HTMLElement;
+    for (const s of body.querySelectorAll('script')) s.remove();
+    // Emoji_Presentation = caracteres exibidos como emoji por padrão (©, ⇄ etc. são texto).
+    expect(body.textContent).not.toMatch(/\p{Emoji_Presentation}|\uFE0F/u);
   });
 });
