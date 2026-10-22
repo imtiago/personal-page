@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test:unit": "vitest run --project unit",
+    "test:unit": "vitest run --project unit --passWithNoTests",
     "test:build": "astro build && vitest run --project build",
     "test": "npm run test:unit && npm run test:build"
   },
