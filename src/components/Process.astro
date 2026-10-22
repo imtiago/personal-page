@@ -1,0 +1,32 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { processSteps } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="metodo" class="section">
+  <div class="container-x">
+    <SectionHeading eyebrow={t('process.eyebrow')} title={t('process.title')} highlight={t('process.highlight')} />
+    <ol class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        processSteps.map((step, i) => (
+          <li class="glass p-6" data-reveal>
+            <span data-step-number class="grad-text font-display text-3xl font-bold">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="mt-2 font-display text-lg font-semibold">{step.title[lang]}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-muted">{step.body[lang]}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

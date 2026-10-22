@@ -1,0 +1,55 @@
+---
+import Icon from './Icon.astro';
+import SectionHeading from './SectionHeading.astro';
+import type { Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { expertise } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const accent: Record<string, string> = {
+  fsm: 'border-primary/35',
+  btp: 'border-violet/45',
+  dev: 'border-white/10',
+};
+---
+
+<section id="expertise" class="section">
+  <div class="container-x">
+    <SectionHeading
+      eyebrow={t('expertise.eyebrow')}
+      title={t('expertise.title')}
+      highlight={t('expertise.highlight')}
+      sub={t('expertise.sub')}
+    />
+    <div class="grid gap-4 md:grid-cols-3">
+      {
+        expertise.map((area) => (
+          <article data-card data-reveal class:list={['glass spotlight p-6', accent[area.id]]}>
+            <div class="mb-4 grid size-11 place-items-center rounded-xl bg-gradient-to-br from-primary/25 to-violet/25 text-primary-soft">
+              <Icon name={area.icon} size={22} />
+            </div>
+            <h3 class="font-display text-lg font-semibold">{area.title[lang]}</h3>
+            <p class="mt-1 text-sm leading-relaxed text-muted">{area.summary[lang]}</p>
+            <ul class="mt-4 space-y-1.5 text-sm text-[#c3d4ec]">
+              {area.items[lang].map((item) => (
+                <li class="flex gap-2">
+                  <span class="mt-2 size-1 shrink-0 rounded-full bg-primary" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import '../scripts/spotlight';
+</script>

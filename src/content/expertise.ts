@@ -11,9 +11,9 @@ export const expertiseData: ExpertiseArea[] = [
       es: 'Implementación y adopción de Field Service Management y Service and Asset Manager.',
     },
     items: {
-      pt: ['Configuração e regras de negócio', 'Conector Proaxia (FSM ↔ S/4HANA)', 'SAP Dynamic Forms', 'Integração com SAP PM / ECC'],
-      en: ['Configuration and business rules', 'Proaxia connector (FSM ↔ S/4HANA)', 'SAP Dynamic Forms', 'Integration with SAP PM / ECC'],
-      es: ['Configuración y reglas de negocio', 'Conector Proaxia (FSM ↔ S/4HANA)', 'SAP Dynamic Forms', 'Integración con SAP PM / ECC'],
+      pt: ['Configuração e regras de negócio', 'Conector Proaxia (FSM ⇄ S/4HANA)', 'SAP Dynamic Forms', 'Integração com SAP PM / ECC'],
+      en: ['Configuration and business rules', 'Proaxia connector (FSM ⇄ S/4HANA)', 'SAP Dynamic Forms', 'Integration with SAP PM / ECC'],
+      es: ['Configuración y reglas de negocio', 'Conector Proaxia (FSM ⇄ S/4HANA)', 'SAP Dynamic Forms', 'Integración con SAP PM / ECC'],
     },
   },
   {

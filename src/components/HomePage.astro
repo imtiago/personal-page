@@ -1,7 +1,11 @@
 ---
+import ConnectDiagram from './ConnectDiagram.astro';
+import Expertise from './Expertise.astro';
 import Hero from './Hero.astro';
 import LangSuggest from './LangSuggest.astro';
 import Nav from './Nav.astro';
+import Process from './Process.astro';
+import Projects from './Projects.astro';
 import type { Lang } from '../i18n/langs';
 
 interface Props {
@@ -14,5 +18,13 @@ const { lang } = Astro.props;
 <Nav lang={lang} />
 <main id="conteudo" data-lang={lang}>
   <Hero lang={lang} />
+  <Expertise lang={lang} />
+  <ConnectDiagram lang={lang} />
+  <Process lang={lang} />
+  <Projects lang={lang} />
+  <section id="certificacoes"></section>
+  <section id="recomendacoes"></section>
+  <section id="sobre"></section>
+  <section id="contato"></section>
 </main>
 <LangSuggest lang={lang} />

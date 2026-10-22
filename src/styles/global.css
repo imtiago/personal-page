@@ -134,3 +134,24 @@
     color: var(--color-primary-soft);
   }
 }
+
+@layer components {
+  .spotlight {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgb(59 156 255 / 0.14), transparent 60%);
+  }
+
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+}

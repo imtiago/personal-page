@@ -1,0 +1,21 @@
+---
+interface Props {
+  eyebrow: string;
+  /** Título com o marcador {highlight}, que recebe o gradiente. */
+  title: string;
+  highlight: string;
+  sub?: string;
+  center?: boolean;
+}
+
+const { eyebrow, title, highlight, sub, center = false } = Astro.props;
+const [before, after = ''] = title.split('{highlight}');
+---
+
+<div class:list={['mb-10 max-w-2xl', { 'mx-auto text-center': center }]} data-reveal>
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 class="mt-2 font-display text-3xl font-bold tracking-tight md:text-4xl">
+    {before}<span class="grad-text">{highlight}</span>{after}
+  </h2>
+  {sub && <p class="mt-3 text-muted">{sub}</p>}
+</div>
