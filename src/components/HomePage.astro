@@ -1,0 +1,13 @@
+---
+import type { Lang } from '../i18n/langs';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<main id="conteudo" data-lang={lang}>
+  <h1 class="sr-only">Tiago Oliveira</h1>
+</main>

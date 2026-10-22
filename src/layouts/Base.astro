@@ -1,0 +1,71 @@
+---
+import '@fontsource-variable/inter';
+import '@fontsource-variable/space-grotesk';
+import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
+import { HTML_LANG, LANGS, OG_LOCALE, pathFor, type Lang } from '../i18n/langs';
+import { useTranslations } from '../i18n/t';
+import { profile } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const site = Astro.site!;
+const abs = (path: string) => new URL(path, site).href;
+const canonical = abs(pathFor(lang));
+const ogImage = abs(`/og/${lang}.png`);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.role[lang],
+  url: canonical,
+  image: ogImage,
+  email: `mailto:${profile.email}`,
+  address: { '@type': 'PostalAddress', addressLocality: 'Rio Branco', addressRegion: 'AC', addressCountry: 'BR' },
+  knowsAbout: ['SAP FSM', 'SAP SSAM', 'SAP BTP', 'SAP S/4HANA', 'SAP Fiori', 'SAPUI5', 'Kyma', 'Cloud Foundry'],
+  knowsLanguage: ['pt-BR', 'en', 'es'],
+  sameAs: [profile.linkedin, profile.github],
+};
+---
+
+<!doctype html>
+<html lang={HTML_LANG[lang]}>
+  <head>
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t('meta.title')}</title>
+    <meta name="description" content={t('meta.description')} />
+    <meta name="theme-color" content="#060f1f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    {LANGS.map((l) => <link rel="alternate" hreflang={HTML_LANG[l]} href={abs(pathFor(l))} />)}
+    <link rel="alternate" hreflang="x-default" href={abs('/')} />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content={t('meta.title')} />
+    <meta property="og:description" content={t('meta.description')} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={t('meta.ogAlt')} />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
+    {LANGS.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={OG_LOCALE[l]} />)}
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="min-h-dvh overflow-x-clip bg-bg font-sans text-text antialiased">
+    <a
+      href="#conteudo"
+      class="sr-only z-[100] rounded-lg bg-primary px-4 py-2 font-semibold text-bg focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+      >{t('a11y.skip')}</a
+    >
+    <slot />
+    <Analytics />
+  </body>
+</html>
