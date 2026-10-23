@@ -51,6 +51,8 @@ export const diagramNodeSchema = z.object({
 export const projectSchema = z.object({
   id: text,
   client: text,
+  /** Título exibido no card quando difere do nome do cliente (ex.: projeto próprio). */
+  title: localized(text).optional(),
   period: localized(text),
   kind: z.enum(['sap', 'dev']),
   featured: z.boolean(),

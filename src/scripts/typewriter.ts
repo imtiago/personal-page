@@ -6,11 +6,7 @@ const motionOk = window.matchMedia('(prefers-reduced-motion: no-preference)').ma
 if (el && motionOk) {
   const words: string[] = JSON.parse(el.dataset.words ?? '[]');
   if (words.length > 0) {
-    // O texto completo continua disponível para leitores de tela; só a parte visual anima.
-    const label = el.textContent ?? '';
-    el.setAttribute('aria-label', label);
-    el.setAttribute('aria-live', 'off');
-    el.classList.add('typing');
+    // Leitores de tela leem o <span class="sr-only"> estável; este span é aria-hidden.
     let state: TypewriterState = { word: 0, chars: words[0].length, deleting: false };
     const tick = () => {
       const next = typewriterStep(state, words);

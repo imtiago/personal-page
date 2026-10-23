@@ -3,6 +3,8 @@ import '@fontsource-variable/inter';
 import '@fontsource-variable/space-grotesk';
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import groteskLatin from '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2?url';
 import { HTML_LANG, LANGS, OG_LOCALE, pathFor, type Lang } from '../i18n/langs';
 import { useTranslations } from '../i18n/t';
 import { profile } from '../content';
@@ -39,6 +41,8 @@ const jsonLd = {
     <script is:inline>document.documentElement.classList.add('js');</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preload" as="font" type="font/woff2" href={groteskLatin} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={interLatin} crossorigin />
     <title>{t('meta.title')}</title>
     <meta name="description" content={t('meta.description')} />
     <meta name="theme-color" content="#060f1f" />

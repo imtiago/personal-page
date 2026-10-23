@@ -33,7 +33,7 @@ const timeline = projects.filter((p) => !p.featured);
               {p.kind === 'dev' && <span class="chip-hl chip mr-2 align-middle">{t('projects.devTag')}</span>}
               {p.period[lang]}
             </p>
-            <h3 class="mt-2 font-display text-xl font-semibold">{p.client}</h3>
+            <h3 class="mt-2 font-display text-xl font-semibold">{p.title?.[lang] ?? p.client}</h3>
             <ul class="mt-3 flex flex-wrap gap-1.5">
               {p.tags.map((tag) => <li class="chip">{tag}</li>)}
             </ul>

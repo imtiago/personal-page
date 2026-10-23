@@ -58,6 +58,11 @@ export const projectsData: Project[] = [
   {
     id: 'inventory-system',
     client: 'Sistema de Gestão Comercial e Estoque',
+    title: {
+      pt: 'Sistema de Gestão Comercial e Estoque',
+      en: 'Sales & Inventory Management System',
+      es: 'Sistema de Gestión Comercial e Inventario',
+    },
     period: { pt: '2026', en: '2026', es: '2026' },
     kind: 'dev',
     featured: true,
