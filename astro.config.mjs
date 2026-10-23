@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://tiago-oliveira.vercel.app',
+  site: 'https://personal-page-steel-three.vercel.app',
   trailingSlash: 'always',
   build: { format: 'directory' },
   integrations: [

@@ -14,5 +14,5 @@ Os marcados com ★ são recomendados antes de divulgar o link.
 | `inventory-system`: confirmar que pode ser público, criar README e 2–3 prints | Repositório no GitHub | Card com link para o repositório | — |
 | Foto original em alta resolução | Substituir `src/assets/avatar.png` (quadrado, rosto centralizado) e rodar `node scripts/og.mjs` | Avatar de 240 px gerado da foto enviada | Avatar e prévias de link mais nítidos |
 | Revisar traduções EN/ES | `src/i18n/ui/en.json`, `es.json` e campos `en`/`es` em `src/content/*.ts` | Traduções escritas por Claude | — |
-| Domínio próprio | `astro.config.mjs` → `site` e `public/robots.txt` | `https://tiago-oliveira.vercel.app` | URLs canônicas, sitemap e prévias passam a usar o domínio |
+| Domínio próprio | `astro.config.mjs` → `site` e `public/robots.txt` | `https://personal-page-steel-three.vercel.app` | URLs canônicas, sitemap e prévias passam a usar o domínio |
 | Ativar a recomendação da Lilian no LinkedIn | LinkedIn → Recomendações → visibilidade | Desativada no perfil | Aparece no perfil público |

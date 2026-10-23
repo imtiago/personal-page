@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { HTML_LANG, LANGS, pathFor } from '../../src/i18n/langs';
 import { loadPage, readDist } from './helpers';
 
-const SITE = 'https://tiago-oliveira.vercel.app';
+const SITE = 'https://personal-page-steel-three.vercel.app';
 
 describe.each(LANGS)('SEO (%s)', (lang) => {
   const doc = loadPage(lang);
