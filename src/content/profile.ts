@@ -12,7 +12,7 @@ export const profileData: Profile = {
   stats: { years: '5+', sapProjects: 5, certs: 4 },
   email: 'tiago.ufac@gmail.com',
   whatsapp: '5568999676543',
-  linkedin: 'https://www.linkedin.com/in/tiago-oliveira-852a27201/',
+  linkedin: 'https://www.linkedin.com/in/tiago-oliveira-sap/',
   github: 'https://github.com/imtiago',
   cv: {},
   heroSpecialties: ['SAP FSM', 'SAP SSAM'],

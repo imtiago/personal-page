@@ -82,6 +82,6 @@ describe.each(LANGS)('certificações, recomendações, sobre e contato (%s)', (
     const footer = doc.querySelector('footer')!;
     expect(footer.textContent).toContain(String(new Date().getFullYear()));
     expect(footer.querySelector('a[href="https://github.com/imtiago"]')).not.toBeNull();
-    expect(footer.querySelector('a[href="https://www.linkedin.com/in/tiago-oliveira-852a27201/"]')).not.toBeNull();
+    expect(footer.querySelector('a[href="https://www.linkedin.com/in/tiago-oliveira-sap/"]')).not.toBeNull();
   });
 });

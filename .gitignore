@@ -8,3 +8,6 @@ shots/
 
 # perfis temporários do Chrome/Lighthouse
 C:*
+
+# exportação do LinkedIn (contém endereço pessoal)
+extras/Profile.pdf

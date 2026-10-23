@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      @font-face { font-family: 'SG'; src: url(%%SG%%) format('woff2'); font-weight: 300 700; }
+      @font-face { font-family: 'Inter'; src: url(%%INTER%%) format('woff2'); font-weight: 100 900; }
+      * { margin: 0; box-sizing: border-box; }
+      body { width: 1584px; height: 396px; overflow: hidden; background: #060f1f; color: #e8f1ff; font-family: Inter, sans-serif; }
+      /* A foto do perfil cobre o canto inferior esquerdo (~420 px); o conteúdo fica à direita. */
+      .card {
+        position: relative; width: 1584px; height: 396px; overflow: hidden;
+        display: flex; align-items: center; justify-content: flex-end; padding: 0 96px 0 480px;
+        background-image:
+          radial-gradient(circle at 70% 30%, rgb(59 156 255 / 0.40), transparent 34%),
+          radial-gradient(circle at 98% 100%, rgb(139 92 246 / 0.45), transparent 32%),
+          radial-gradient(circle at 8% 0%, rgb(14 165 233 / 0.22), transparent 30%),
+          linear-gradient(rgb(59 156 255 / 0.07) 1px, transparent 1px),
+          linear-gradient(90deg, rgb(59 156 255 / 0.07) 1px, transparent 1px);
+        background-size: auto, auto, auto, 36px 36px, 36px 36px;
+      }
+      .text { text-align: right; }
+      .eyebrow { font-size: 19px; letter-spacing: 0.24em; text-transform: uppercase; color: #7fb8ff; display: flex; justify-content: flex-end; align-items: center; gap: 12px; }
+      .dot { width: 12px; height: 12px; border-radius: 50%; background: #34d399; box-shadow: 0 0 14px #34d399; }
+      h1 { font-family: SG; font-weight: 700; font-size: 74px; line-height: 1; letter-spacing: -0.02em; margin: 16px 0 18px; }
+      .grad { background: linear-gradient(90deg, #3b9cff, #8b5cf6 60%, #38bdf8); -webkit-background-clip: text; color: transparent; }
+      .flow { display: flex; justify-content: flex-end; align-items: center; gap: 12px; font-size: 21px; color: #bcd6f5; }
+      .flow .arrow { color: #3b9cff; }
+      .chip { padding: 7px 16px; border-radius: 999px; border: 1px solid rgb(59 156 255 / 0.4); background: rgb(59 156 255 / 0.1); color: #cfe4ff; }
+      .chip.hl { border-color: transparent; background: linear-gradient(90deg, #1f6fd1, #6d3fe0); color: #fff; font-weight: 600; }
+      .url { margin-top: 18px; font-size: 17px; color: #7fb8ff; letter-spacing: 0.02em; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="text">
+        <p class="eyebrow"><span class="dot"></span>%%EYEBROW%%</p>
+        <h1>%%TITLE%%</h1>
+        <div class="flow">%%FLOW%%</div>
+        <p class="url">%%URL%%</p>
+      </div>
+    </div>
+  </body>
+</html>

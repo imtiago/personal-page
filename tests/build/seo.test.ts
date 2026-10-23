@@ -51,7 +51,7 @@ describe.each(LANGS)('SEO (%s)', (lang) => {
     expect(ld.knowsAbout).toContain('SAP BTP');
     expect(ld.sameAs).toEqual(
       expect.arrayContaining([
-        'https://www.linkedin.com/in/tiago-oliveira-852a27201/',
+        'https://www.linkedin.com/in/tiago-oliveira-sap/',
         'https://github.com/imtiago',
       ]),
     );
